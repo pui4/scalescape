@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dvsgegou85crd"
+path="res://.godot/imported/Final Girl - Jeremy Blake.mp3-937d7f12166533a0db78970402c317ef.mp3str"
+
+[deps]
+
+source_file="res://sfx/Final Girl - Jeremy Blake.mp3"
+dest_files=["res://.godot/imported/Final Girl - Jeremy Blake.mp3-937d7f12166533a0db78970402c317ef.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

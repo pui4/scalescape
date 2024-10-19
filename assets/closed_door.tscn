@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c74w3lge76xiw"]
+
+[ext_resource type="SpriteFrames" uid="uid://ddsonxnfgajvh" path="res://spriteframes/door.tres" id="1_mxrpo"]
+[ext_resource type="Script" path="res://scripts/closed_door.gd" id="1_qbour"]
+[ext_resource type="AudioStream" uid="uid://b6j2clcjfwpmd" path="res://sfx/door_close.mp3" id="3_m3w3g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07kha"]
+size = Vector2(5, 32)
+
+[node name="closed_door" type="Node2D"]
+script = ExtResource("1_qbour")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = ExtResource("1_mxrpo")
+flip_h = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_m3w3g")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-5.5, 0)
+shape = SubResource("RectangleShape2D_07kha")

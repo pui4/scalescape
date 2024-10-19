@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://v5k8k37fldjc"]
+
+[ext_resource type="Texture2D" uid="uid://c8lwcwwymdffp" path="res://icon.svg" id="1_sval2"]
+[ext_resource type="PackedScene" uid="uid://c4ncyki722uao" path="res://assets/player.tscn" id="2_gn4fs"]
+[ext_resource type="PackedScene" uid="uid://c6somssmg7ndo" path="res://assets/robo_enemy.tscn" id="3_k3grv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v41d0"]
+size = Vector2(128, 127)
+
+[node name="debug" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(590, 606)
+scale = Vector2(53.12, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_sval2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_v41d0")
+
+[node name="player" parent="." instance=ExtResource("2_gn4fs")]
+position = Vector2(321, 450)
+
+[node name="robo_enemy" parent="." instance=ExtResource("3_k3grv")]
+position = Vector2(832, 445)
+scale = Vector2(0.395, 0.395)
+
+[node name="robo_enemy2" parent="." instance=ExtResource("3_k3grv")]
+position = Vector2(1007, 460)
+scale = Vector2(0.395, 0.395)
+
+[node name="robo_enemy3" parent="." instance=ExtResource("3_k3grv")]
+position = Vector2(1181, 445)
+scale = Vector2(0.395, 0.395)
+
+[node name="robo_enemy4" parent="." instance=ExtResource("3_k3grv")]
+position = Vector2(1292, 449)
+scale = Vector2(0.395, 0.395)
+
+[node name="robo_enemy5" parent="." instance=ExtResource("3_k3grv")]
+position = Vector2(1409, 448)
+scale = Vector2(0.395, 0.395)
+
+[node name="robo_enemy6" parent="." instance=ExtResource("3_k3grv")]
+position = Vector2(1526, 444)
+scale = Vector2(0.395, 0.395)
+
+[node name="robo_enemy7" parent="." instance=ExtResource("3_k3grv")]
+position = Vector2(1608, 445)
+scale = Vector2(0.395, 0.395)
+
+[node name="robo_enemy8" parent="." instance=ExtResource("3_k3grv")]
+position = Vector2(917, 452)
+scale = Vector2(0.395, 0.395)
+
+[node name="robo_enemy9" parent="." instance=ExtResource("3_k3grv")]
+position = Vector2(1113, 437)
+scale = Vector2(0.395, 0.395)
+
+[node name="robo_enemy10" parent="." instance=ExtResource("3_k3grv")]
+position = Vector2(741, 441)
+scale = Vector2(0.395, 0.395)
+
+[node name="robo_enemy11" parent="." instance=ExtResource("3_k3grv")]
+position = Vector2(623, 455)
+scale = Vector2(0.395, 0.395)
+
+[node name="robo_enemy12" parent="." instance=ExtResource("3_k3grv")]
+position = Vector2(553, 456)
+scale = Vector2(0.395, 0.395)
+
+[node name="robo_enemy13" parent="." instance=ExtResource("3_k3grv")]
+position = Vector2(687, 446)
+scale = Vector2(0.395, 0.395)
+
+[node name="robo_enemy14" parent="." instance=ExtResource("3_k3grv")]
+position = Vector2(1688, 440)
+scale = Vector2(0.395, 0.395)

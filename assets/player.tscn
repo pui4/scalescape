@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4ncyki722uao"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_i8a8j"]
+[ext_resource type="Texture2D" uid="uid://kjxcj7aodidu" path="res://sprites/ball.png" id="2_8tqct"]
+[ext_resource type="AudioStream" uid="uid://bhf6sujd7k5rv" path="res://sfx/rumble.mp3" id="3_gjrl3"]
+[ext_resource type="AudioStream" uid="uid://15k54lgcriy3" path="res://sfx/stretch.mp3" id="4_es7tv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gpo7s"]
+radius = 20.0
+
+[sub_resource type="Curve" id="Curve_h8c6i"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.927481, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="player" type="RigidBody2D"]
+collision_mask = 3
+max_contacts_reported = 4
+contact_monitor = true
+angular_velocity = 0.496546
+script = ExtResource("1_i8a8j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.21, 1.21)
+texture = ExtResource("2_8tqct")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("CircleShape2D_gpo7s")
+
+[node name="GroundCheck" type="RayCast2D" parent="."]
+target_position = Vector2(0, 21)
+collision_mask = 3
+
+[node name="RoofCheck" type="RayCast2D" parent="."]
+target_position = Vector2(0, -100)
+collision_mask = 3
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_gjrl3")
+
+[node name="SfxCheck" type="RayCast2D" parent="."]
+target_position = Vector2(21, 0)
+collision_mask = 3
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, 20)
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 105.33
+angle_max = 720.0
+scale_amount_min = 0.0
+scale_amount_max = 7.56
+scale_amount_curve = SubResource("Curve_h8c6i")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_es7tv")

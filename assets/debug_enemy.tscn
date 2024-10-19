@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3k8k78yr48x2"]
+
+[ext_resource type="Texture2D" uid="uid://d3t5oyygcr2wp" path="res://icon.svg" id="1_jhplo"]
+[ext_resource type="Texture2D" uid="uid://yn5shn0aajb4" path="res://sprites/blood.png" id="2_t5egj"]
+[ext_resource type="Texture2D" uid="uid://dscqjenuxgmx1" path="res://sprites/blood_splat.png" id="4_6ugom"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m750o"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+initial_velocity_min = 377.36
+initial_velocity_max = 716.98
+gravity = Vector3(0, 980, 0)
+collision_mode = 1
+collision_friction = 0.45
+collision_bounce = 0.15
+collision_use_scale = true
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tfj4a"]
+size = Vector2(128, 128)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_30ryc"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+
+[node name="debug_enemy" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 30
+sub_emitter = NodePath("../GPUParticles2D2")
+process_material = SubResource("ParticleProcessMaterial_m750o")
+texture = ExtResource("2_t5egj")
+one_shot = true
+explosiveness = 1.0
+trail_enabled = true
+
+[node name="enemy_body" type="CharacterBody2D" parent="."]
+
+[node name="sprite" type="Sprite2D" parent="enemy_body"]
+texture = ExtResource("1_jhplo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_body"]
+shape = SubResource("RectangleShape2D_tfj4a")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+texture_filter = 1
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_30ryc")
+texture = ExtResource("4_6ugom")
+lifetime = 600.0

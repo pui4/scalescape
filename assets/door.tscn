@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://thhihaqetciu"]
+
+[ext_resource type="Script" path="res://scripts/door.gd" id="1_72brh"]
+[ext_resource type="SpriteFrames" uid="uid://ddsonxnfgajvh" path="res://spriteframes/door.tres" id="1_lhruq"]
+[ext_resource type="AudioStream" uid="uid://bstwckeros7k7" path="res://sfx/door_open.mp3" id="3_npr70"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lx4sm"]
+size = Vector2(5, 32)
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_72brh")
+
+[node name="Door" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = ExtResource("1_lhruq")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(5.5, 0)
+shape = SubResource("RectangleShape2D_lx4sm")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_npr70")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
